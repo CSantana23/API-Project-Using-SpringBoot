@@ -15,7 +15,7 @@
             </xs:sequence>
         </xs:complexType>
     </xs:element>
-    <xs:element name="GetAllCouseDetailsRequest">
+    <xs:element name="GetAllCourseDetailsRequest">
         <xs:complexType>
         </xs:complexType>
     </xs:element>

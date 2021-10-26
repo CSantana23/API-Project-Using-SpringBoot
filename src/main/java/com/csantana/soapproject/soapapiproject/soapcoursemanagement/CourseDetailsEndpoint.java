@@ -50,7 +50,7 @@ public class CourseDetailsEndpoint {
 
     @PayloadRoot(namespace = "http://in28minutes.com/courses", localPart = "GetAllCourseDetailsRequest")
     @ResponsePayload
-    public GetAllCourseDetailsResponse processAllCourseDetailsRequest(@RequestPayload GetAllCouseDetailsRequest request) {
+    public GetAllCourseDetailsResponse processAllCourseDetailsRequest(@RequestPayload GetAllCourseDetailsRequest request) {
         List<Course> courses = service.findAll();
         return mapAllCourseDetails(courses);
     }
