@@ -40,7 +40,7 @@ public class CourseDetailsService {
         return courses;
     }
 
-    public int deleteByInt(int id) {
+    public int deleteById(int id) {
         Iterator<Course> iterator = courses.iterator();
         while(iterator.hasNext()) {
             Course course = iterator.next();
