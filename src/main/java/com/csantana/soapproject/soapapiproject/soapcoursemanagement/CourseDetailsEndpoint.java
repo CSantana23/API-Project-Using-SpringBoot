@@ -1,6 +1,7 @@
 package com.csantana.soapproject.soapapiproject.soapcoursemanagement;
 
 import com.csantana.soapproject.soapapiproject.soap.service.CourseDetailsService;
+import com.in28minutes.courses.Status;
 import com.in28minutes.courses.*;
 import com.soap.bean.Course;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,10 +59,16 @@ public class CourseDetailsEndpoint {
     @PayloadRoot(namespace = "http://in28minutes.com/courses", localPart = "DeleteCourseDetailsRequest")
     @ResponsePayload
     public DeleteCourseDetailsResponse deleteCourseDetailsRequest(@RequestPayload DeleteCourseDetailsRequest request) {
-        int status = service.deleteById(request.getId());
+        Status status = service.deleteById(request.getId());
         DeleteCourseDetailsResponse response = new DeleteCourseDetailsResponse();
-        response.setStatus(status);
+        response.setStatus(mapStatus(status));
         return response;
+    }
+
+    private com.in28minutes.courses.Status mapStatus(Status status) {
+        if(status == Status.FAILURE)
+            return Status.FAILURE;
+        return Status.SUCCESS;
     }
 
 }
